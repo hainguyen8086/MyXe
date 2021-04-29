@@ -1,5 +1,7 @@
 package com.doancuoiky.myxe.ui.xe;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.doancuoiky.myxe.R;
+import com.doancuoiky.myxe.activity.ThemXe;
 
 public class XeFragment extends Fragment {
 
@@ -48,12 +51,14 @@ public class XeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity(), LinearLayoutManager.VERTICAL, false));
 
 
-
+        Uri uri;
+        Intent intent=new Intent(getActivity(),ThemXe.class);
         final TextView textViewAddXe=root.findViewById(R.id.textview_button_add);
         textViewAddXe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("clicked text on cardview");
+//                System.out.println("clicked text on cardview");
+                startActivity(intent);
             }
         });
         return root;

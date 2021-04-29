@@ -1,8 +1,9 @@
-package com.doancuoiky.myxe;
+package com.doancuoiky.myxe.activity;
 
 import android.os.Bundle;
 import android.view.Window;
 
+import com.doancuoiky.myxe.R;
 import com.doancuoiky.myxe.model.NetworkAPI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -12,6 +13,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-        testAPI();
+//        testAPI();
     }
 
     public void testAPI() {
@@ -43,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
                     object.put("password", "123456");
                     NetworkAPI networkAPI = new NetworkAPI();
                     String response = networkAPI.execute("GetAllItem", object.toString()).get();
+                    JSONArray jsonArray = new JSONArray(response);
+                    System.out.println(jsonArray);
+
                     System.out.println("Response testAPI = " + response);
                 }catch (Exception ex) {
                     ex.printStackTrace();
