@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_xe"
+        android:icon="@drawable/ic_xe"
+        android:title="@string/title_xe" />
+    <item
+        android:id="@+id/navigation_castro"
+        android:icon="@drawable/ic_castro"
+        android:title="@string/title_castro" />
+
+    <item
+        android:id="@+id/navigation_petro"
+        android:icon="@drawable/ic_petro"
+        android:title="@string/title_petro" />
+
+    <item
+        android:id="@+id/navigation_km"
+        android:icon="@drawable/ic_km"
+        android:title="@string/title_km" />
+
+</menu>

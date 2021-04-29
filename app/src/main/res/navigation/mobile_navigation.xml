@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_xe">
+
+    <fragment
+        android:id="@+id/navigation_xe"
+        android:name="com.hainguyen8086.myxe.ui.xe.XeFragment"
+        android:label="@string/title_xe"
+        tools:layout="@layout/fragment_xe" />
+
+    <fragment
+        android:id="@+id/navigation_castro"
+        android:name="com.hainguyen8086.myxe.ui.nhot.NhotFragment"
+        android:label="@string/title_castro"
+        tools:layout="@layout/fragment_nhot" />
+
+    <fragment
+        android:id="@+id/navigation_petro"
+        android:name="com.hainguyen8086.myxe.ui.xang.XangFragment"
+        android:label="@string/title_petro"
+        tools:layout="@layout/fragment_xang" />
+
+    <fragment
+        android:id="@+id/navigation_km"
+        android:name="com.hainguyen8086.myxe.ui.linhkien.LinhkienFragment"
+        android:label="@string/title_km"
+        tools:layout="@layout/fragment_linhkien" />
+</navigation>
