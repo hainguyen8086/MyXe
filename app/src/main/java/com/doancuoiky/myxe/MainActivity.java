@@ -1,4 +1,4 @@
-package com.hainguyen8086.myxe;
+package com.doancuoiky.myxe;
 
 import android.os.Bundle;
 import android.view.Window;

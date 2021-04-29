@@ -1,4 +1,4 @@
-package com.hainguyen8086.myxe;
+package com.doancuoiky.myxe;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.hainguyen8086.myxe", appContext.getPackageName());
+        assertEquals("com.doancuoiky.myxe", appContext.getPackageName());
     }
 }

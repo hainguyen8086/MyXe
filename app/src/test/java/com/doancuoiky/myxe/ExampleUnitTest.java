@@ -1,4 +1,4 @@
-package com.hainguyen8086.myxe;
+package com.doancuoiky.myxe;
 
 import org.junit.Test;
 

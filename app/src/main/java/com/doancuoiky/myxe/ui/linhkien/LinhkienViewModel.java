@@ -1,16 +1,16 @@
-package com.hainguyen8086.myxe.ui.nhot;
+package com.doancuoiky.myxe.ui.linhkien;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NhotViewModel extends ViewModel {
+public class LinhkienViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public NhotViewModel() {
+    public LinhkienViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Thay nhớt");
+        mText.setValue("Thay linh kien ");
     }
 
     public LiveData<String> getText() {

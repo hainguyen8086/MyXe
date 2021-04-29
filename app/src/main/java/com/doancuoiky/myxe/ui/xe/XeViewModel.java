@@ -1,16 +1,16 @@
-package com.hainguyen8086.myxe.ui.xang;
+package com.doancuoiky.myxe.ui.xe;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class XangViewModel extends ViewModel {
+public class XeViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public XangViewModel() {
+    public XeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Đổ xăng");
+        mText.setValue("danh sách xe");
     }
 
     public LiveData<String> getText() {
