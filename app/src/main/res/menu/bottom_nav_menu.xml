@@ -6,18 +6,18 @@
         android:icon="@drawable/ic_xe"
         android:title="@string/title_xe" />
     <item
-        android:id="@+id/navigation_castro"
-        android:icon="@drawable/ic_castro"
-        android:title="@string/title_castro" />
-
-    <item
         android:id="@+id/navigation_petro"
         android:icon="@drawable/ic_petro"
         android:title="@string/title_petro" />
 
     <item
+        android:id="@+id/navigation_castro"
+        android:icon="@drawable/ic_castro"
+        android:title="@string/title_castro" />
+
+    <item
         android:id="@+id/navigation_km"
-        android:icon="@drawable/ic_km"
-        android:title="@string/title_km" />
+        android:icon="@drawable/ic_linhkien"
+        android:title="@string/title_linhkien" />
 
 </menu>

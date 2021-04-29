@@ -10,7 +10,7 @@ public class LinhkienViewModel extends ViewModel {
 
     public LinhkienViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("Thay linh kien ");
     }
 
     public LiveData<String> getText() {

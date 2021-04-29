@@ -10,7 +10,7 @@ public class NhotViewModel extends ViewModel {
 
     public NhotViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("Thay nhớt");
     }
 
     public LiveData<String> getText() {

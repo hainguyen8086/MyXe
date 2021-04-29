@@ -10,7 +10,7 @@ public class XeViewModel extends ViewModel {
 
     public XeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is Xe fragment");
+        mText.setValue("danh sách xe");
     }
 
     public LiveData<String> getText() {

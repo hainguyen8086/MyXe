@@ -10,7 +10,7 @@ public class XangViewModel extends ViewModel {
 
     public XangViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue("Đổ xăng");
     }
 
     public LiveData<String> getText() {
