@@ -8,15 +8,17 @@ public class LichSuThayLinhKien {
     public String tenLinhKien;
     public int soLuong;
     public int giaLinhKien;
-    public DateTimeFormatter dateTimeFormatter;
+    public String thoiGian;
+    public String diaDiem;
 
-    public LichSuThayLinhKien(String idXe, String bienSoXe, String tenLinhKien, int soLuong, int giaLinhKien, DateTimeFormatter dateTimeFormatter) {
+    public LichSuThayLinhKien(String idXe, String bienSoXe, String tenLinhKien, int soLuong, int giaLinhKien, String thoiGian, String diaDiem) {
         this.idXe = idXe;
         this.bienSoXe = bienSoXe;
         this.tenLinhKien = tenLinhKien;
         this.soLuong = soLuong;
         this.giaLinhKien = giaLinhKien;
-        this.dateTimeFormatter = dateTimeFormatter;
+        this.thoiGian = thoiGian;
+        this.diaDiem = diaDiem;
     }
 
     public String getIdXe() {
@@ -59,13 +61,19 @@ public class LichSuThayLinhKien {
         this.giaLinhKien = giaLinhKien;
     }
 
-    public DateTimeFormatter getDateTimeFormatter() {
-        return dateTimeFormatter;
+    public String getThoiGian() {
+        return thoiGian;
     }
 
-    public void setDateTimeFormatter(DateTimeFormatter dateTimeFormatter) {
-        this.dateTimeFormatter = dateTimeFormatter;
+    public void setThoiGian(String thoiGian) {
+        this.thoiGian = thoiGian;
     }
 
+    public String getDiaDiem() {
+        return diaDiem;
+    }
 
+    public void setDiaDiem(String diaDiem) {
+        this.diaDiem = diaDiem;
+    }
 }

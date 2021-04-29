@@ -4,35 +4,27 @@ import java.time.format.DateTimeFormatter;
 
 public class LichSuDoXang {
     public String idXe;
-    public String bienSoXe;
     public int tienDoXang;
     public int dungTich;
     public int kmLucDoXang;
-    public DateTimeFormatter dateTimeFormatter;
+    public String thoiGian;
     public String diaChi;
 
-    public LichSuDoXang(String idXe, String bienSoXe, int tienDoXang, int dungTich, int kmLucDoXang, DateTimeFormatter dateTimeFormatter, String diaChi) {
+    public LichSuDoXang(String idXe, int tienDoXang, int dungTich, int kmLucDoXang, String thoiGian, String diaChi) {
         this.idXe = idXe;
-        this.bienSoXe = bienSoXe;
         this.tienDoXang = tienDoXang;
         this.dungTich = dungTich;
         this.kmLucDoXang = kmLucDoXang;
-        this.dateTimeFormatter = dateTimeFormatter;
+        this.thoiGian = thoiGian;
         this.diaChi = diaChi;
     }
 
-
+    public String getIdXe() {
+        return idXe;
+    }
 
     public void setIdXe(String idXe) {
         this.idXe = idXe;
-    }
-
-    public String getBienSoXe() {
-        return bienSoXe;
-    }
-
-    public void setBienSoXe(String bienSoXe) {
-        this.bienSoXe = bienSoXe;
     }
 
     public int getTienDoXang() {
@@ -59,12 +51,12 @@ public class LichSuDoXang {
         this.kmLucDoXang = kmLucDoXang;
     }
 
-    public DateTimeFormatter getDateTimeFormatter() {
-        return dateTimeFormatter;
+    public String getThoiGian() {
+        return thoiGian;
     }
 
-    public void setDateTimeFormatter(DateTimeFormatter dateTimeFormatter) {
-        this.dateTimeFormatter = dateTimeFormatter;
+    public void setThoiGian(String thoiGian) {
+        this.thoiGian = thoiGian;
     }
 
     public String getDiaChi() {

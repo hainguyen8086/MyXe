@@ -14,10 +14,33 @@ public class Xe {
     public int kmHienTai;
     public String ghiChu;
 
-    public LichBaoTri lichBaoTri;
+    public String ngayBaoTri;
+    public int kilometBaoTri;
+
     public ArrayList<LichSuDoXang> listLichSuDoXang;
     public ArrayList<LichSuThayNhot> listLichSuThayNhot;
     public ArrayList<LichSuThayLinhKien> listLichSuThayLinhKien;
+
+    public Xe(int id, String tenXe, String bienSoXe, String loaiXe, String hangXe, Date ngayMua, int kmHienTai, String ghiChu) {
+        this.id = id;
+        this.tenXe = tenXe;
+        this.bienSoXe = bienSoXe;
+        this.loaiXe = loaiXe;
+        this.hangXe = hangXe;
+        this.ngayMua = ngayMua;
+        this.kmHienTai = kmHienTai;
+        this.ghiChu = ghiChu;
+    }
+
+    public Xe(int id, String tenXe, String bienSoXe, String loaiXe, String hangXe, Date ngayMua, int kmHienTai) {
+        this.id = id;
+        this.tenXe = tenXe;
+        this.bienSoXe = bienSoXe;
+        this.loaiXe = loaiXe;
+        this.hangXe = hangXe;
+        this.ngayMua = ngayMua;
+        this.kmHienTai = kmHienTai;
+    }
 
     public Xe(int id, String tenXe, String bienSoXe, String loaiXe, String hangXe, Date ngayMua) {
         this.id = id;
@@ -92,12 +115,20 @@ public class Xe {
         this.ghiChu = ghiChu;
     }
 
-    public LichBaoTri getLichBaoTri() {
-        return lichBaoTri;
+    public String getNgayBaoTri() {
+        return ngayBaoTri;
     }
 
-    public void setLichBaoTri(LichBaoTri lichBaoTri) {
-        this.lichBaoTri = lichBaoTri;
+    public void setNgayBaoTri(String ngayBaoTri) {
+        this.ngayBaoTri = ngayBaoTri;
+    }
+
+    public int getKilometBaoTri() {
+        return kilometBaoTri;
+    }
+
+    public void setKilometBaoTri(int kilometBaoTri) {
+        this.kilometBaoTri = kilometBaoTri;
     }
 
     public ArrayList<LichSuDoXang> getListLichSuDoXang() {
