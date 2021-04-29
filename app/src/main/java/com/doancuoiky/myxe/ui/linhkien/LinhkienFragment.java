@@ -1,4 +1,4 @@
-package com.hainguyen8086.myxe.ui.nhot;
+package com.doancuoiky.myxe.ui.linhkien;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,19 +12,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.hainguyen8086.myxe.R;
+import com.doancuoiky.myxe.R;
 
-public class NhotFragment extends Fragment {
+public class LinhkienFragment extends Fragment {
 
-    private NhotViewModel nhotViewModel;
+    private LinhkienViewModel linhkienViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        nhotViewModel =
-                new ViewModelProvider(this).get(NhotViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_nhot, container, false);
-        final TextView textView = root.findViewById(R.id.text_nhot);
-        nhotViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        linhkienViewModel =
+                new ViewModelProvider(this).get(LinhkienViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_linhkien, container, false);
+        final TextView textView = root.findViewById(R.id.text_linhkien);
+        linhkienViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

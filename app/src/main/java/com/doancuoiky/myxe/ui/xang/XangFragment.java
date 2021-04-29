@@ -1,4 +1,4 @@
-package com.hainguyen8086.myxe.ui.xang;
+package com.doancuoiky.myxe.ui.xang;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.hainguyen8086.myxe.R;
+import com.doancuoiky.myxe.R;
 
 public class XangFragment extends Fragment {
 

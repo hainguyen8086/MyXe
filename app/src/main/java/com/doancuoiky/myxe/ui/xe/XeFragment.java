@@ -1,4 +1,4 @@
-package com.hainguyen8086.myxe.ui.xe;
+package com.doancuoiky.myxe.ui.xe;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hainguyen8086.myxe.R;
+import com.doancuoiky.myxe.R;
 
 public class XeFragment extends Fragment {
 

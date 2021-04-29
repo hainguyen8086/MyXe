@@ -1,4 +1,4 @@
-package com.hainguyen8086.myxe.adapter;
+package com.doancuoiky.myxe.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hainguyen8086.myxe.R;
+import com.doancuoiky.myxe.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

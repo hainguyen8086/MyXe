@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.hainguyen8086.myxe"
+        applicationId "com.doancuoiky.myxe"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1

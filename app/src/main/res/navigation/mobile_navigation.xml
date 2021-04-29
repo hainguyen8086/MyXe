@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/navigation_xe"
-        android:name="com.hainguyen8086.myxe.ui.xe.XeFragment"
+        android:name="com.doancuoiky.myxe.ui.xe.XeFragment"
         android:label="@string/title_xe"
         tools:layout="@layout/fragment_xe" />
 
     <fragment
         android:id="@+id/navigation_petro"
-        android:name="com.hainguyen8086.myxe.ui.xang.XangFragment"
+        android:name="com.doancuoiky.myxe.ui.xang.XangFragment"
         android:label="@string/title_petro"
         tools:layout="@layout/fragment_xang" />
 
     <fragment
         android:id="@+id/navigation_castro"
-        android:name="com.hainguyen8086.myxe.ui.nhot.NhotFragment"
+        android:name="com.doancuoiky.myxe.ui.nhot.NhotFragment"
         android:label="@string/title_castro"
         tools:layout="@layout/fragment_nhot" />
 
     <fragment
         android:id="@+id/navigation_km"
-        android:name="com.hainguyen8086.myxe.ui.linhkien.LinhkienFragment"
+        android:name="com.doancuoiky.myxe.ui.linhkien.LinhkienFragment"
         android:label="@string/title_linhkien"
         tools:layout="@layout/fragment_linhkien" />
 </navigation>
