@@ -23,13 +23,13 @@ public class LinhkienFragment extends Fragment {
         linhkienViewModel =
                 new ViewModelProvider(this).get(LinhkienViewModel.class);
         View root = inflater.inflate(R.layout.fragment_linhkien, container, false);
-        final TextView textView = root.findViewById(R.id.text_linhkien);
-        linhkienViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+//        final TextView textView = root.findViewById(R.id.text_linhkien);
+//        linhkienViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
         return root;
     }
 }
