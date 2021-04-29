@@ -21,9 +21,7 @@ public class LichSuDoXang {
         this.diaChi = diaChi;
     }
 
-    public String getIdXe() {
-        return idXe;
-    }
+
 
     public void setIdXe(String idXe) {
         this.idXe = idXe;
