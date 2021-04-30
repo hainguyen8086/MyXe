@@ -64,6 +64,7 @@ public class XeFragment extends Fragment {
                 recycleViewXeAdapter = new RecycleViewXeAdapter(getActivity(), tenXe, bienSo);
 
                 recyclerView.setAdapter(recycleViewXeAdapter);
+                
 
             }
         });
