@@ -29,10 +29,8 @@ public class ThemXe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_them_xe);
-
+        System.out.println("Them Xe activity");
         init();
-        getAllItem();
-
         textViewbtnAddXeMoi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,9 +50,7 @@ public class ThemXe extends AppCompatActivity {
                             object.put("ghiChu",edtGhiChu.getText().toString());
                             NetworkAPI networkAPI = new NetworkAPI();
                             String response = networkAPI.execute("AddItem", object.toString()).get();
-//                            JSONArray jsonArray = new JSONArray(response);
-//                            System.out.println(jsonArray);
-//                            System.out.println(object.toString());
+
                             JSONObject jsonObject = new JSONObject(response);
                             if (jsonObject.getInt("code") == 0) {
                                 System.out.println("succes");
@@ -63,6 +59,7 @@ public class ThemXe extends AppCompatActivity {
                             }
                             System.out.println("Response testAPI = " + response);
                         }catch (Exception ex) {
+                            System.out.println("Catch clausive\n");
                             ex.printStackTrace();
                         }
                     }
@@ -84,45 +81,5 @@ public class ThemXe extends AppCompatActivity {
         textViewbtnAddXeMoi = findViewById(R.id.textview_button_saveAdd);
 
 
-    }
-    private void getAllItem() {
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                try {
-                    JSONObject object = new JSONObject();
-                    object.put("username", "tester");
-                    object.put("password", "123456");
-                    NetworkAPI networkAPI = new NetworkAPI();
-                    String response = networkAPI.execute("GetAllItem", object.toString()).get();
-                    JSONArray jsonArray = new JSONArray(response);
-//                    JSONObject jsonObject = new JSONObject(response);
-                    System.out.println("jsonAraay==="+jsonArray);
-
-                    System.out.println("Response testAPI = " + response);
-
-                    if (jsonArray != null){
-                        String tenXe = "";
-                        String bienSo = "";
-                        for (int i=0;i<jsonArray.length();i++){
-                            try{
-                                JSONObject jsonObjectfor=jsonArray.getJSONObject(i);
-                                tenXe = jsonObjectfor.getString("tenXe");
-                                bienSo = jsonObjectfor.getString("bienSoXe");
-                                System.out.println("getJsonObject"+tenXe+"--"+bienSo);
-                                listTenXe.add(tenXe);
-                                listBienSoXe.add(bienSo);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-
-                }catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-        };
-        thread.start();
     }
 }

@@ -24,8 +24,8 @@ public class RequestHandler {
     }
 
     public String sendQuery(String urlPath, String query, JSONObject postDataParams) throws Exception{
-        System.out.println("URL = " + WEB_URL + urlPath);
-        System.out.println("Param = " + query);
+        System.out.println("API URL = " + WEB_URL + urlPath);
+        System.out.println("API Param = " + query);
         URL url = new URL(WEB_URL + urlPath);     // moi
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setReadTimeout(20000);

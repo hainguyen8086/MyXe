@@ -47,31 +47,22 @@ public class XeViewModel extends ViewModel {
                     object.put("password", "123456");
                     NetworkAPI networkAPI = new NetworkAPI();
                     String response = networkAPI.execute("GetAllItem", object.toString()).get();
-                    System.out.println("respon ==\n"+response);
+                    System.out.println("Get all item response = \n" + response);
                     JSONArray jsonArray = new JSONArray(response);
-//                    JSONObject jsonObject = new JSONObject(response);
-                    System.out.println("jsonAraay==="+jsonArray);
-
-                    System.out.println("Response testAPI = " + response);
-
-                    if (jsonArray != null){
-                        String tenXe = "";
-                        String bienSo = "";
-                        for (int i=0;i<jsonArray.length();i++){
-                            try{
-                                JSONObject jsonObjectfor=jsonArray.getJSONObject(i);
-                                tenXe = jsonObjectfor.getString("tenXe");
-                                bienSo = jsonObjectfor.getString("bienSoXe");
-                                System.out.println("getJsonObject"+tenXe+"--"+bienSo);
-                                listTenXe.add(tenXe);
-                                listBienSoXe.add(bienSo);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
+                    for (int i=0;i<jsonArray.length();i++){
+                        try {
+                            JSONObject jsonObjectfor = jsonArray.getJSONObject(i);
+                            String tenXe = jsonObjectfor.getString("tenXe");
+                            String bienSo = jsonObjectfor.getString("bienSoXe");
+                            System.out.println("getJsonObject "+tenXe+" -- "+bienSo);
+                            listTenXe.add(tenXe);
+                            listBienSoXe.add(bienSo);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
                     }
-                    System.out.println("List Ten Xe "+listTenXe);
-                    System.out.println("List Bien So Xe "+listBienSoXe);
+                    System.out.println("List Ten Xe " + listTenXe);
+                    System.out.println("List Bien So Xe " + listBienSoXe);
 
                 }catch (Exception ex) {
                     ex.printStackTrace();
