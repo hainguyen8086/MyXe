@@ -57,6 +57,7 @@
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:id="@+id/edt_chitiet_km"
                     android:hint="km hien tai"
                     android:layout_weight="2" />
 
@@ -114,6 +115,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
+                    android:id="@+id/imgview_doxang"
                     android:background="@drawable/ic_doxang2" />
 
                 <TextView
@@ -135,6 +137,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
+                    android:id="@+id/imgview_doxang_history"
                     android:background="@drawable/ic_history2" />
 
                 <TextView
@@ -163,6 +166,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
+                    android:id="@+id/imgview_thaynhot"
                     android:background="@drawable/ic_thaynhot" />
 
                 <TextView
@@ -184,6 +188,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
+                    android:id="@+id/imgview_thaynhot_history"
                     android:background="@drawable/ic_history3" />
 
                 <TextView
@@ -212,6 +217,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
+                    android:id="@+id/imgview_thaylinhkien"
                     android:background="@drawable/ic_thaylinhkien" />
 
                 <TextView
@@ -233,6 +239,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
+                    android:id="@+id/imgview_thaylinhkien_history"
                     android:background="@drawable/ic_history4" />
 
                 <TextView

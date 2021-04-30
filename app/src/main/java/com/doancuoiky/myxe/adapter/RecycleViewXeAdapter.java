@@ -71,7 +71,7 @@ public class RecycleViewXeAdapter extends RecyclerView.Adapter<RecycleViewXeAdap
             intent.putExtra("position", getLayoutPosition());
             intent.putExtra("putTenXe", listTenXe.get(getLayoutPosition()));
             intent.putExtra("putBienSoXe", listBienSoXe.get(getLayoutPosition()));
-
+            v.getContext().startActivity(intent);
 
         }
     }
