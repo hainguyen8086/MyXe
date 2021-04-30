@@ -1,0 +1,14 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".version2.BangTin.BangTin">
+
+
+    <item
+        android:id="@+id/menu_fxe"
+        android:orderInCategory="300"
+        android:title="Đăng tin"
+        android:icon="@drawable/ic_baseline_add_30"
+        app:showAsAction="ifRoom" />
+</menu>

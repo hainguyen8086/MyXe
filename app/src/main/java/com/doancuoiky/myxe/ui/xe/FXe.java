@@ -1,19 +1,26 @@
 package com.doancuoiky.myxe.ui.xe;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.doancuoiky.myxe.R;
+import com.doancuoiky.myxe.activity.AddItem;
 import com.doancuoiky.myxe.adapter.VehicleAdapter;
 import com.doancuoiky.myxe.global.GlobalFunction;
 import com.doancuoiky.myxe.model.LichSuDoXang;
+import com.doancuoiky.myxe.model.LichSuThayLinhKien;
 import com.doancuoiky.myxe.model.LichSuThayNhot;
 import com.doancuoiky.myxe.model.NetworkAPI;
 import com.doancuoiky.myxe.model.Xe;
@@ -50,6 +57,7 @@ public class FXe extends Fragment {
     ListView listView;
     VehicleAdapter vehicleAdapter;
     List<Xe> vehicleList = new ArrayList<>();
+    ProgressDialog loadingAlert;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,6 +66,25 @@ public class FXe extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_fxe, menu);
+        super.onCreateOptionsMenu(menu,inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.menu_fxe:
+                Intent intent = new Intent(getActivity(), AddItem.class);
+                getActivity().startActivity(intent);
+                break;
+        }
+        return true;
     }
 
     @Override
@@ -65,11 +92,13 @@ public class FXe extends Fragment {
                              Bundle savedInstanceState) {
         rootView = (ConstraintLayout ) inflater.inflate(R.layout.fragment_f_xe, container, false);
         listView = rootView.findViewById(R.id.f_xe_listView);
+        loadingAlert = GlobalFunction.loadingAlert(getActivity());
         loadMyVehicle();
         return rootView;
     }
 
     public void loadMyVehicle() {
+        loadingAlert.show();
         Thread thread = new Thread() {
             @Override
             public void run() {
@@ -95,10 +124,26 @@ public class FXe extends Fragment {
                         String ngayBaoTri = item.getString("ngayBaoTri");
                         Xe xe = new Xe(id, tenXe, bienSoXe, loaiXe, hangXe, ngayMua, kmHienTai, ghiChu, chuXe);
                         xe.setListLichSuDoXang(getFuelList(item.getJSONArray("lichSuDoXang")));
+                        xe.setListLichSuThayNhot(getRenewHistory(item.getJSONArray("lichSuThayNhot")));
+                        xe.setListLichSuThayLinhKien(getPartChangeHistory(item.getJSONArray("lichSuThayLinhKien")));
+                        vehicleList.add(xe);
                     }
+                    vehicleAdapter = new VehicleAdapter(getActivity(), R.layout.cell_vehicle, vehicleList);
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            listView.setAdapter(vehicleAdapter);
+                        }
+                    });
                 }catch (Exception ex) {
                     ex.printStackTrace();
                 }
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingAlert.dismiss();
+                    }
+                });
             }
         };
         thread.start();
@@ -137,6 +182,27 @@ public class FXe extends Fragment {
                 String diaChi = item.getString("diaChi");
                 LichSuThayNhot lichSuThayNhot = new LichSuThayNhot(id, kmLucThayNhot, loaiNhot, giaNhot, thoiGian, diaChi);
                 list.add(lichSuThayNhot);
+            }
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return list;
+    }
+
+    public List<LichSuThayLinhKien> getPartChangeHistory(JSONArray array) {
+        List<LichSuThayLinhKien> list = new ArrayList<>();
+        try {
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject item = array.getJSONObject(i);
+                String id = item.getString("id");
+                String bienSoXe = item.getString("bienSoXe");
+                String tenLinhKien = item.getString("tenLinhKien");
+                int soLuong = item.getInt("soLuong");
+                int giaLinhKien = item.getInt("giaLinhKien");
+                String thoiGian = item.getString("thoiGian");
+                String diaChi = item.getString("diaChi");
+                LichSuThayLinhKien lichSuThayLinhKien = new LichSuThayLinhKien(id, bienSoXe, tenLinhKien, soLuong, giaLinhKien, thoiGian, diaChi);
+                list.add(lichSuThayLinhKien);
             }
         }catch (Exception ex) {
             ex.printStackTrace();

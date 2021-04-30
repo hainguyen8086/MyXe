@@ -11,6 +11,7 @@ import com.doancuoiky.myxe.R;
 import com.doancuoiky.myxe.ui.linhkien.FLinhKien;
 import com.doancuoiky.myxe.ui.nhot.FNhot;
 import com.doancuoiky.myxe.ui.xang.FXang;
+import com.doancuoiky.myxe.ui.xang.XangFragment;
 import com.doancuoiky.myxe.ui.xe.FXe;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -42,7 +43,7 @@ public class HomeView extends AppCompatActivity implements FXe.OnFragmentInterac
             String currentTitle = getTitle().toString();
             switch (item.getItemId()) {
                 case R.id.navigation_xe:
-                    setTitle("Xe");
+                    setTitle("Danh sách xe");
                     if (fragments[0] == null) {
                         fragments[0] = new FXe();
                         getSupportFragmentManager().beginTransaction().hide(fragments[tagFra]).add(R.id.fragment_frame, fragments[0]).commit();
@@ -56,7 +57,7 @@ public class HomeView extends AppCompatActivity implements FXe.OnFragmentInterac
                 case R.id.navigation_petro:
                     setTitle("Đổ xăng");
                     if (fragments[1] == null) {
-                        fragments[1] = new FXang();
+                        fragments[1] = new XangFragment();
                         getSupportFragmentManager().beginTransaction().hide(fragments[tagFra]).add(R.id.fragment_frame, fragments[1]).commit();
                     }
                     else {

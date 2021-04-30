@@ -3,30 +3,30 @@ package com.doancuoiky.myxe.model;
 import java.time.format.DateTimeFormatter;
 
 public class LichSuThayLinhKien {
-    public String idXe;
+    public String id;
     public String bienSoXe;
     public String tenLinhKien;
     public int soLuong;
     public int giaLinhKien;
     public String thoiGian;
-    public String diaDiem;
+    public String diaChi;
 
-    public LichSuThayLinhKien(String idXe, String bienSoXe, String tenLinhKien, int soLuong, int giaLinhKien, String thoiGian, String diaDiem) {
-        this.idXe = idXe;
+    public LichSuThayLinhKien(String id, String bienSoXe, String tenLinhKien, int soLuong, int giaLinhKien, String thoiGian, String diaChi) {
+        this.id = id;
         this.bienSoXe = bienSoXe;
         this.tenLinhKien = tenLinhKien;
         this.soLuong = soLuong;
         this.giaLinhKien = giaLinhKien;
         this.thoiGian = thoiGian;
-        this.diaDiem = diaDiem;
+        this.diaChi = diaChi;
     }
 
     public String getIdXe() {
-        return idXe;
+        return id;
     }
 
     public void setIdXe(String idXe) {
-        this.idXe = idXe;
+        this.id = idXe;
     }
 
     public String getBienSoXe() {
@@ -70,10 +70,10 @@ public class LichSuThayLinhKien {
     }
 
     public String getDiaDiem() {
-        return diaDiem;
+        return diaChi;
     }
 
     public void setDiaDiem(String diaDiem) {
-        this.diaDiem = diaDiem;
+        this.diaChi = diaDiem;
     }
 }
