@@ -1,10 +1,14 @@
 package com.doancuoiky.myxe.ui.xang;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,45 +18,38 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.doancuoiky.myxe.R;
+import com.doancuoiky.myxe.adapter.FuelAdapter;
+import com.doancuoiky.myxe.global.GlobalFunction;
+import com.doancuoiky.myxe.model.BaseCell;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class XangFragment extends Fragment {
 
-    private XangViewModel xangViewModel;
+    ListView listView;
+    TextView textView;
+    List<BaseCell> list = new ArrayList<>();
+    FuelAdapter fuelAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        xangViewModel =
-                new ViewModelProvider(this).get(XangViewModel.class);
         View root = inflater.inflate(R.layout.fragment_xang, container, false);
-//        final TextView textView = root.findViewById(R.id.text_xang);
-//        xangViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
-
-
-//        final int MIN_CHARS = 10;
-//        String fullText;
-//        final boolean[] isExpanded = new boolean[1];
-//
-//        TextView textViewDropdown = root.findViewById(R.id.expandableTextView);
-//        ImageButton imageButton = root.findViewById(R.id.expandBtn);
-//
-//        fullText = textView.getText().toString();
-//        textView.setText(fullText.substring(0,MIN_CHARS));
-//        imageButton.setImageResource(R.drawable.ic_add);
-//        imageButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                isExpanded[0] = !isExpanded[0];
-//                imageButton.setImageResource(isExpanded[0] ?R.drawable.ic_castro:R.drawable.ic_petro);
-//                textView.setText(isExpanded[0] ?fullText:fullText.substring(0,MIN_CHARS));
-//            }
-//        });
-
-        
+        listView = root.findViewById(R.id.xang_listView);
+        textView = root.findViewById(R.id.xang_textView);
+        GlobalFunction.hideSoftKeyboard(getActivity());
+        textView.setText("Xe đang chọn: XE ABC");
+        list.add(new BaseCell(R.drawable.ic_moto, "Tiền đổ xăng", "Nhập số tiền đổ xăng"));
+        list.add(new BaseCell(R.drawable.ic_moto, "Dung tích", "Nhập số lit xăng đã đổ"));
+        list.add(new BaseCell(R.drawable.ic_moto, "Số km", "Nhập số km hiện tại"));
+        list.add(new BaseCell(R.drawable.ic_moto, "Địa chỉ", "Địa chỉ cây xăng"));
+        renderList();
         return root;
     }
+
+    public void renderList() {
+        fuelAdapter = new FuelAdapter(getActivity(), R.layout.cell_add_fuel, list);
+        listView.setAdapter(fuelAdapter);
+    }
+
 }
