@@ -55,9 +55,9 @@ public class XangFragment extends Fragment {
         GlobalFunction.hideSoftKeyboard(getActivity());
         textView.setText("Xe đang chọn: XE ABC");
         list.add(new BaseCell(R.drawable.ic_moto, "", "Nhập số tiền đổ xăng"));
-        list.add(new BaseCell(R.drawable.ic_moto, "", "Nhập số lit xăng đã đổ"));
-        list.add(new BaseCell(R.drawable.ic_moto, "", "Nhập số km hiện tại"));
-        list.add(new BaseCell(R.drawable.ic_moto, "", "Địa chỉ cây xăng"));
+        list.add(new BaseCell(R.drawable.ic_dungtich, "", "Nhập số lit xăng đã đổ"));
+        list.add(new BaseCell(R.drawable.ic_km, "", "Nhập số km hiện tại"));
+        list.add(new BaseCell(R.drawable.ic_map, "", "Địa chỉ cây xăng"));
         renderList();
         return root;
     }

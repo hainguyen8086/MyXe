@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,10 +27,12 @@ public class RecycleViewXeAdapter extends RecyclerView.Adapter<RecycleViewXeAdap
         this.listBienSoXe = listBienSoXe;
     }
 
+//    private final View.OnClickListener mOnClickListener = new MyOnClickListener();
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view=mInflater.inflate(R.layout.cartview_xe,parent,false);
+//        view.setOnClickListener((View.OnClickListener) this);
         return new ViewHolder(view);
     }
 
@@ -48,14 +51,21 @@ public class RecycleViewXeAdapter extends RecyclerView.Adapter<RecycleViewXeAdap
         return listTenXe.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView textViewBienSoXe;
         TextView textViewTenXe;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             textViewBienSoXe = itemView.findViewById(R.id.textview_bienso);
             textViewTenXe = itemView.findViewById(R.id.textview_tenxe);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(v.getContext(), "position = " + getLayoutPosition(), Toast.LENGTH_SHORT).show();
+
         }
     }
 }
