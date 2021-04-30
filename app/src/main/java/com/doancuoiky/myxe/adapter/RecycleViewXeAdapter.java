@@ -16,14 +16,12 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class RecycleViewXeAdapter extends RecyclerView.Adapter<RecycleViewXeAdapter.ViewHolder> {
-    private List<String> listHinhanh;
     private List<String> listTenXe;
     private List<String> listBienSoXe;
     private LayoutInflater mInflater;
 
-    public RecycleViewXeAdapter(Context context,List<String> listHinhanh, List<String> listTenXe, List<String> listBienSoXe) {
+    public RecycleViewXeAdapter(Context context, List<String> listTenXe, List<String> listBienSoXe) {
         this.mInflater = LayoutInflater.from(context);
-        this.listHinhanh = listHinhanh;
         this.listTenXe = listTenXe;
         this.listBienSoXe = listBienSoXe;
     }
@@ -43,8 +41,6 @@ public class RecycleViewXeAdapter extends RecyclerView.Adapter<RecycleViewXeAdap
         String tenXe = listTenXe.get(position);
         holder.textViewTenXe.setText(tenXe);
 
-        String uri = listHinhanh.get(position);
-        Picasso.get().load(uri).into(holder.imageViewXe);
     }
 
     @Override
@@ -55,12 +51,11 @@ public class RecycleViewXeAdapter extends RecyclerView.Adapter<RecycleViewXeAdap
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView textViewBienSoXe;
         TextView textViewTenXe;
-        ImageView imageViewXe;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewBienSoXe = itemView.findViewById(R.id.textview_bienso);
             textViewTenXe = itemView.findViewById(R.id.textview_tenxe);
-            imageViewXe = itemView.findViewById(R.id.image_xe);
         }
     }
 }
