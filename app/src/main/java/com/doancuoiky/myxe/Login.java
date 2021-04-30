@@ -29,7 +29,6 @@ public class Login extends AppCompatActivity {
         findViewById(R.id.sign_in_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Click signin");
                 signIn();
             }
         });

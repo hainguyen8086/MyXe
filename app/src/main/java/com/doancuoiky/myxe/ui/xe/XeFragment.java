@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.doancuoiky.myxe.R;
+import com.doancuoiky.myxe.activity.AddItem;
 import com.doancuoiky.myxe.activity.ThemXe;
 import com.doancuoiky.myxe.adapter.RecycleViewXeAdapter;
 import com.doancuoiky.myxe.model.ViewXe;
@@ -41,12 +42,11 @@ public class XeFragment extends Fragment {
 
 
         Uri uri;
-        Intent intent=new Intent(getActivity(),ThemXe.class);
         final TextView textViewAddXe=root.findViewById(R.id.textview_button_add);
         textViewAddXe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                System.out.println("clicked text on cardview");
+                Intent intent = new Intent(getActivity(), AddItem.class);
                 startActivity(intent);
             }
         });
