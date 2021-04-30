@@ -13,7 +13,7 @@ public class Xe {
     public Date ngayMua;
     public int kmHienTai;
     public String ghiChu;
-
+    public String chuXe;
     public String ngayBaoTri;
     public int kilometBaoTri;
 
@@ -21,7 +21,7 @@ public class Xe {
     public ArrayList<LichSuThayNhot> listLichSuThayNhot;
     public ArrayList<LichSuThayLinhKien> listLichSuThayLinhKien;
 
-    public Xe(int id, String tenXe, String bienSoXe, String loaiXe, String hangXe, Date ngayMua, int kmHienTai, String ghiChu) {
+    public Xe(int id, String tenXe, String bienSoXe, String loaiXe, String hangXe, Date ngayMua, int kmHienTai, String ghiChu, String chuXe) {
         this.id = id;
         this.tenXe = tenXe;
         this.bienSoXe = bienSoXe;
@@ -30,6 +30,7 @@ public class Xe {
         this.ngayMua = ngayMua;
         this.kmHienTai = kmHienTai;
         this.ghiChu = ghiChu;
+        this.chuXe = chuXe;
     }
 
     public Xe(int id, String tenXe, String bienSoXe, String loaiXe, String hangXe, Date ngayMua, int kmHienTai) {
