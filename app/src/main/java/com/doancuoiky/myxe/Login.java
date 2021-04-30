@@ -40,6 +40,7 @@ public class Login extends AppCompatActivity {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         if (account != null) {
             System.out.println("Đã đăng nhập: " + account.getEmail());
+            GlobalFunction.loginEmail = account.getEmail();
             updateUI(account);
         } else {
             System.out.println("Chưa đăng nhập");
