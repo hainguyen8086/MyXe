@@ -2,8 +2,12 @@ package com.doancuoiky.myxe.global;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.view.inputmethod.InputMethodManager;
+
+import com.doancuoiky.myxe.model.Xe;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,6 +16,7 @@ public class GlobalFunction {
 
     public static String loginEmail;
     public static String currentID = "";
+    public static Xe selectedXe;
 
     public static void hideSoftKeyboard(Activity activity) {
         InputMethodManager inputMethodManager =
@@ -53,5 +58,14 @@ public class GlobalFunction {
                 }
             }
         });
+    }
+
+    public static ProgressDialog loadingAlert(Activity activity) {
+        ProgressDialog loadingAlert;
+        loadingAlert = new ProgressDialog(activity);
+        loadingAlert.setTitle("");
+        loadingAlert.setMessage("Đang xử lý");
+        loadingAlert.setCancelable(false);
+        return loadingAlert;
     }
 }

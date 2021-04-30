@@ -3,25 +3,26 @@ package com.doancuoiky.myxe.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Xe {
-    public int id;
+    public String id;
     public String tenXe;
     public String bienSoXe;
     public String loaiXe;
     public String hangXe;
-    public Date ngayMua;
+    public String ngayMua;
     public int kmHienTai;
     public String ghiChu;
     public String chuXe;
     public String ngayBaoTri;
     public int kilometBaoTri;
 
-    public ArrayList<LichSuDoXang> listLichSuDoXang;
-    public ArrayList<LichSuThayNhot> listLichSuThayNhot;
-    public ArrayList<LichSuThayLinhKien> listLichSuThayLinhKien;
+    public List<LichSuDoXang> listLichSuDoXang;
+    public List<LichSuThayNhot> listLichSuThayNhot;
+    public List<LichSuThayLinhKien> listLichSuThayLinhKien;
 
-    public Xe(int id, String tenXe, String bienSoXe, String loaiXe, String hangXe, Date ngayMua, int kmHienTai, String ghiChu, String chuXe) {
+    public Xe(String id, String tenXe, String bienSoXe, String loaiXe, String hangXe, String ngayMua, int kmHienTai, String ghiChu, String chuXe) {
         this.id = id;
         this.tenXe = tenXe;
         this.bienSoXe = bienSoXe;
@@ -33,7 +34,7 @@ public class Xe {
         this.chuXe = chuXe;
     }
 
-    public Xe(int id, String tenXe, String bienSoXe, String loaiXe, String hangXe, Date ngayMua, int kmHienTai) {
+    public Xe(String id, String tenXe, String bienSoXe, String loaiXe, String hangXe, String ngayMua, int kmHienTai) {
         this.id = id;
         this.tenXe = tenXe;
         this.bienSoXe = bienSoXe;
@@ -43,7 +44,7 @@ public class Xe {
         this.kmHienTai = kmHienTai;
     }
 
-    public Xe(int id, String tenXe, String bienSoXe, String loaiXe, String hangXe, Date ngayMua) {
+    public Xe(String id, String tenXe, String bienSoXe, String loaiXe, String hangXe, String ngayMua) {
         this.id = id;
         this.tenXe = tenXe;
         this.bienSoXe = bienSoXe;
@@ -52,11 +53,19 @@ public class Xe {
         this.ngayMua = ngayMua;
     }
 
-    public int getId() {
+    public List<LichSuDoXang> getListLichSuDoXang() {
+        return listLichSuDoXang;
+    }
+
+    public void setListLichSuDoXang(List<LichSuDoXang> listLichSuDoXang) {
+        this.listLichSuDoXang = listLichSuDoXang;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -92,11 +101,11 @@ public class Xe {
         this.hangXe = hangXe;
     }
 
-    public Date getNgayMua() {
+    public String getNgayMua() {
         return ngayMua;
     }
 
-    public void setNgayMua(Date ngayMua) {
+    public void setNgayMua(String ngayMua) {
         this.ngayMua = ngayMua;
     }
 
@@ -116,6 +125,14 @@ public class Xe {
         this.ghiChu = ghiChu;
     }
 
+    public String getChuXe() {
+        return chuXe;
+    }
+
+    public void setChuXe(String chuXe) {
+        this.chuXe = chuXe;
+    }
+
     public String getNgayBaoTri() {
         return ngayBaoTri;
     }
@@ -132,27 +149,19 @@ public class Xe {
         this.kilometBaoTri = kilometBaoTri;
     }
 
-    public ArrayList<LichSuDoXang> getListLichSuDoXang() {
-        return listLichSuDoXang;
-    }
-
-    public void setListLichSuDoXang(ArrayList<LichSuDoXang> listLichSuDoXang) {
-        this.listLichSuDoXang = listLichSuDoXang;
-    }
-
-    public ArrayList<LichSuThayNhot> getListLichSuThayNhot() {
+    public List<LichSuThayNhot> getListLichSuThayNhot() {
         return listLichSuThayNhot;
     }
 
-    public void setListLichSuThayNhot(ArrayList<LichSuThayNhot> listLichSuThayNhot) {
+    public void setListLichSuThayNhot(List<LichSuThayNhot> listLichSuThayNhot) {
         this.listLichSuThayNhot = listLichSuThayNhot;
     }
 
-    public ArrayList<LichSuThayLinhKien> getListLichSuThayLinhKien() {
+    public List<LichSuThayLinhKien> getListLichSuThayLinhKien() {
         return listLichSuThayLinhKien;
     }
 
-    public void setListLichSuThayLinhKien(ArrayList<LichSuThayLinhKien> listLichSuThayLinhKien) {
+    public void setListLichSuThayLinhKien(List<LichSuThayLinhKien> listLichSuThayLinhKien) {
         this.listLichSuThayLinhKien = listLichSuThayLinhKien;
     }
 }
