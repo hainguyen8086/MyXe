@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.doancuoiky.myxe.activity.HomeView;
 import com.doancuoiky.myxe.activity.MainActivity;
 import com.doancuoiky.myxe.global.GlobalFunction;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -50,7 +51,7 @@ public class Login extends AppCompatActivity {
         if (account != null) {
             Toast.makeText(Login.this, "Xin chào, " + account.getDisplayName(), Toast.LENGTH_SHORT).show();
             GlobalFunction.loginEmail = account.getEmail();
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, HomeView.class);
             startActivity(intent);
         }
     }

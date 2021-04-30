@@ -31,13 +31,14 @@ public class XeFragment extends Fragment {
     //    private CardView cardViewAddXe;
     RecycleViewXeAdapter recycleViewXeAdapter;
 
+    /*
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         if (!hidden) {
 
         }
-    }
+    }*/
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
