@@ -1,6 +1,7 @@
 package com.doancuoiky.myxe.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.doancuoiky.myxe.R;
+import com.doancuoiky.myxe.activity.ChiTietXe;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -65,6 +67,11 @@ public class RecycleViewXeAdapter extends RecyclerView.Adapter<RecycleViewXeAdap
         @Override
         public void onClick(View v) {
             Toast.makeText(v.getContext(), "position = " + getLayoutPosition(), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(v.getContext(), ChiTietXe.class);
+            intent.putExtra("position", getLayoutPosition());
+            intent.putExtra("putTenXe", listTenXe.get(getLayoutPosition()));
+            intent.putExtra("putBienSoXe", listBienSoXe.get(getLayoutPosition()));
+
 
         }
     }

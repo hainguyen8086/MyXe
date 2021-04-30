@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.doancuoiky.myxe.global.GlobalFunction;
 import com.doancuoiky.myxe.model.NetworkAPI;
 import com.doancuoiky.myxe.model.ViewXe;
 import com.doancuoiky.myxe.model.Xe;
@@ -46,8 +47,8 @@ public class XeViewModel extends ViewModel {
             public void run() {
                 try {
                     JSONObject object = new JSONObject();
-                    object.put("username", "tester");
-                    object.put("password", "123456");
+                    object.put("email", GlobalFunction.loginEmail);
+//                    object.put("password", "d2");
                     NetworkAPI networkAPI = new NetworkAPI();
                     String response = networkAPI.execute("GetAllItem", object.toString()).get();
                     System.out.println("Get all item response = \n" + response);

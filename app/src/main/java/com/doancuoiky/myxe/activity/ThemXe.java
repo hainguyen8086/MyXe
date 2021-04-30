@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.doancuoiky.myxe.R;
+import com.doancuoiky.myxe.global.GlobalFunction;
 import com.doancuoiky.myxe.model.NetworkAPI;
 
 import org.json.JSONArray;
@@ -39,7 +40,9 @@ public class ThemXe extends AppCompatActivity {
                     public void run() {
                         try {
                             JSONObject object = new JSONObject();
+
                             object.put("id", edtId.getText().toString());
+                            object.put("chuXe", GlobalFunction.loginEmail);
                             object.put("tenXe",edtTenXe.getText().toString());
                             object.put("bienSoXe",edtId.getText().toString());
                             object.put("loaiXe",edtLoaiXe.getText().toString());

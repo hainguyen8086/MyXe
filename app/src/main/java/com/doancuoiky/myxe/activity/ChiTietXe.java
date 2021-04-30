@@ -12,5 +12,8 @@ public class ChiTietXe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chi_tiet_xe);
+
+        Bundle bundle=getIntent().getExtras();
+        bundle.getString("position");
     }
 }
