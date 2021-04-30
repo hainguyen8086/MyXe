@@ -62,28 +62,34 @@ public class XangFragment extends Fragment {
         return root;
     }
 
+    //Show ListView
     public void renderList() {
         fuelAdapter = new FuelAdapter(getActivity(), R.layout.cell_add_fuel, list);
         listView.setAdapter(fuelAdapter);
     }
 
+    //Handle button khi Click
     public void setEvent() {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Tạo 1 json object -> để truyền body request tới API
                 String[] jsonKey = {"tienDoXang", "dungTich", "kmLucDoXang", "diaChi"};
                 try {
                     JSONObject object = new JSONObject();
                     object.put("id", "15-G1 12345678");
                     boolean valid = true;
+                    //Lấy all value from Edittext trong Listview
                     for (int i = 0; i < fuelAdapter.getCount(); i++) {
                         String value = fuelAdapter.getItem(i).getTitle();
                         if (value == null || value.isEmpty()) {
                             valid = false;
                             break;
                         }
+                        //Các trường số thì convert giá trị sang int
                         object.put(jsonKey[i], i < 3 ? Integer.parseInt(value) : value);
                     }
+                    //Nếu các editText đều có giá trị thì call API, ngược lại showToast báo
                     if (valid) {
                         addFuelHistory(object);
                     } else {
@@ -110,6 +116,7 @@ public class XangFragment extends Fragment {
                         @Override
                         public void run() {
                             try {
+                                //Show message from API response // thành công hoặc thất bại
                                 Toast.makeText(getActivity(), result.getString("description"), Toast.LENGTH_SHORT).show();
                             } catch (JSONException e) {
                                 e.printStackTrace();

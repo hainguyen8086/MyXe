@@ -51,6 +51,7 @@ public class FuelAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inf = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView = inf.inflate(layout, null);
+        //Show image icon từ drawable
         ImageView imageView = convertView.findViewById(R.id.cell_addFuel_imageView);
         Drawable res = context.getResources().getDrawable(list.get(position).getIconName());
         imageView.setImageDrawable(res);
@@ -67,12 +68,13 @@ public class FuelAdapter extends BaseAdapter {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
-
+            //Mỗi khi edit cần save lại vào list, để có thể lấy những giá trị này từ Fragment
             @Override
             public void afterTextChanged(Editable s) {
                 list.get(position).setTitle(s.toString());
             }
         });
+        //Các trường số thì set keyboard type Number
         if (position < 3) {
             editText.setInputType(InputType.TYPE_CLASS_NUMBER);
         }
