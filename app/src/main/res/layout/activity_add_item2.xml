@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.AddItem2">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thời gian mua xe"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:id="@+id/additem2_textView1"
+        />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="44dp"
+        android:text="17/05/2020"
+        android:textAllCaps="false"
+        android:id="@+id/additem2_button"
+        app:layout_constraintStart_toEndOf="@id/additem2_textView1"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:textSize="18sp"
+        android:background="@drawable/roundbutton"
+        android:textColor="#FFFFFF"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nhập số km đã đi"
+        app:layout_constraintTop_toBottomOf="@id/additem2_textView1"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/additem2_textView2"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="100dp"
+        app:layout_constraintStart_toEndOf="@id/additem2_textView2"
+        app:layout_constraintTop_toBottomOf="@id/additem2_textView1"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        android:hint="Nhập số km"
+        android:inputType="number"
+        android:id="@+id/additem2_editText"
+        />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="44dp"
+        android:text="Thêm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/additem2_note"
+        android:layout_marginTop="50dp"
+        android:id="@+id/additem2_submit"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toBottomOf="@id/additem2_textView2"
+        android:layout_marginTop="30dp"
+        android:hint="Ghi chú thêm"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:background="@null"
+        android:inputType="textMultiLine"
+        android:id="@+id/additem2_note"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

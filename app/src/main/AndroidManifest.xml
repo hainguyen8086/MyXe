@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyXe">
+        <activity android:name=".activity.AddItem2"></activity>
         <activity android:name=".activity.LichSuThayLinhKien"></activity>
         <activity android:name=".activity.LichSuThayNhot" />
         <activity android:name=".activity.LichSuDoXang" />

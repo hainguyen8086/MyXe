@@ -31,6 +31,14 @@ public class XeFragment extends Fragment {
     //    private CardView cardViewAddXe;
     RecycleViewXeAdapter recycleViewXeAdapter;
 
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden) {
+
+        }
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         xeViewModel =
@@ -41,7 +49,6 @@ public class XeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity(), LinearLayoutManager.VERTICAL, false));
 
 
-        Uri uri;
         final TextView textViewAddXe=root.findViewById(R.id.textview_button_add);
         textViewAddXe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,23 +58,6 @@ public class XeFragment extends Fragment {
             }
         });
 
-        xeViewModel.getListViewXe().observe(getViewLifecycleOwner(), new Observer<ArrayList<ViewXe>>() {
-            @Override
-            public void onChanged(ArrayList<ViewXe> viewXes) {
-                List<String> tenXe = new ArrayList<>();
-                List<String> bienSo = new ArrayList<>();
-                for (ViewXe i:viewXes){
-                    tenXe.add(i.getTenXe());
-                    bienSo.add(i.getBienSo());
-                }
-
-                recycleViewXeAdapter = new RecycleViewXeAdapter(getActivity(), tenXe, bienSo);
-
-                recyclerView.setAdapter(recycleViewXeAdapter);
-                
-
-            }
-        });
         return root;
     }
 }

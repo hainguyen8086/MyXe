@@ -2,6 +2,7 @@ package com.doancuoiky.myxe.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.doancuoiky.myxe.R;
+import com.doancuoiky.myxe.global.GlobalFunction;
 
 public class AddItem extends AppCompatActivity {
 
@@ -56,13 +58,20 @@ public class AddItem extends AppCompatActivity {
                         System.out.println(tenXe);
                         System.out.println(loaiXe);
                         System.out.println(hangXe);
-
+                        Intent intent = new Intent(AddItem.this, AddItem2.class);
+                        intent.putExtra("bienSoXe", bienSoXe);
+                        intent.putExtra("tenXe", tenXe);
+                        intent.putExtra("loaiXe", loaiXe);
+                        intent.putExtra("hangXe", hangXe);
+                        startActivity(intent);
+                        finish();
                     } else {
                         Toast.makeText(AddItem.this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         });
+        GlobalFunction.hideSoftKeyboard(this);
     }
 
     public void nextStep2() {
@@ -71,6 +80,7 @@ public class AddItem extends AppCompatActivity {
         tenxe.setText("");
         textView1.setText("Loại xe");
         textView2.setText("Hãng xe");
+        bienso.requestFocus();
     }
 
     public void backStep1() {
@@ -79,6 +89,7 @@ public class AddItem extends AppCompatActivity {
         textView2.setText("Tên xe của bạn");
         bienso.setText(bienSoXe);
         tenxe.setText(tenXe);
+        bienso.requestFocus();
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
