@@ -29,6 +29,7 @@ public class HomeView extends AppCompatActivity implements FXe.OnFragmentInterac
         navigationView = findViewById(R.id.nav_view);
         navigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         fragments[0] = new FXe();
+        setTitle("Danh sách xe");
         //getSupportFragmentManager().beginTransaction().add(R.id.fragment_frame, fragments[0], "first").commit();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_frame, fragments[0], "first").commit();
         tagFra = 0;

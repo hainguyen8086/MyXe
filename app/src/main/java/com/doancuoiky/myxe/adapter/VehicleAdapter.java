@@ -22,6 +22,7 @@ public class VehicleAdapter extends BaseAdapter {
     Context context;
     int layout;
     List<Xe> list;
+    int selected = -1;
 
     public VehicleAdapter(Context context, int layout, List<Xe> list) {
         this.context = context;
@@ -44,6 +45,12 @@ public class VehicleAdapter extends BaseAdapter {
         return 0;
     }
 
+    public void updateSelected(int index) {
+        selected = index;
+        GlobalFunction.selectedXe = list.get(index);
+        notifyDataSetChanged();
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inf = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -53,16 +60,10 @@ public class VehicleAdapter extends BaseAdapter {
         TextView id = convertView.findViewById(R.id.cell_vehicle_id);
         id.setText(list.get(position).getBienSoXe());
         name.setText(list.get(position).getTenXe());
-        Drawable res = context.getResources().getDrawable(R.drawable.img_moto);
+        Drawable res = context.getResources().getDrawable(GlobalFunction.motoIcons[position % GlobalFunction.motoIcons.length]);
         imageView.setImageDrawable(res);
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                GlobalFunction.selectedXe = list.get(position);
-                Intent intent = new Intent(context, ChiTietXe.class);
-                context.startActivity(intent);
-            }
-        });
+        ImageView checkBox = convertView.findViewById(R.id.cell_vehicle_check);
+        checkBox.setVisibility(position == selected ? View.VISIBLE : View.GONE);
         return convertView;
     }
 }

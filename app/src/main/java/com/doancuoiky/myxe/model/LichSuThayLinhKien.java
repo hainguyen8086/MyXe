@@ -1,6 +1,5 @@
 package com.doancuoiky.myxe.model;
 
-import java.time.format.DateTimeFormatter;
 
 public class LichSuThayLinhKien {
     public String id;
@@ -10,6 +9,22 @@ public class LichSuThayLinhKien {
     public int giaLinhKien;
     public String thoiGian;
     public String diaChi;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getDiaChi() {
+        return diaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
+    }
 
     public LichSuThayLinhKien(String id, String bienSoXe, String tenLinhKien, int soLuong, int giaLinhKien, String thoiGian, String diaChi) {
         this.id = id;

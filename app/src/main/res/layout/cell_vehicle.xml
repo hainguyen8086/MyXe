@@ -44,6 +44,15 @@
         android:id="@+id/cell_vehicle_id"
         />
 
-
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:layout_constraintTop_toTopOf="@id/cell_vehicle_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_baseline_check_box_24"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="6dp"
+        android:id="@+id/cell_vehicle_check"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

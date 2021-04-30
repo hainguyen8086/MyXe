@@ -13,10 +13,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.doancuoiky.myxe.R;
 import com.doancuoiky.myxe.activity.AddItem;
+import com.doancuoiky.myxe.activity.ChiTietXe;
 import com.doancuoiky.myxe.adapter.VehicleAdapter;
 import com.doancuoiky.myxe.global.GlobalFunction;
 import com.doancuoiky.myxe.model.LichSuDoXang;
@@ -92,9 +94,36 @@ public class FXe extends Fragment {
                              Bundle savedInstanceState) {
         rootView = (ConstraintLayout ) inflater.inflate(R.layout.fragment_f_xe, container, false);
         listView = rootView.findViewById(R.id.f_xe_listView);
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+                                           int pos, long id) {
+                System.out.println("Long press at " + pos);
+                vehicleAdapter.updateSelected(pos);
+                return true;
+            }
+        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                vehicleAdapter.updateSelected(position);
+                Intent intent = new Intent(getActivity(), ChiTietXe.class);
+                getActivity().startActivity(intent);
+            }
+        });
         loadingAlert = GlobalFunction.loadingAlert(getActivity());
         loadMyVehicle();
         return rootView;
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden) {
+            System.out.println("FXe hidden = " + hidden);
+            vehicleList.clear();
+            loadMyVehicle();
+        }
     }
 
     public void loadMyVehicle() {

@@ -13,9 +13,9 @@
         android:theme="@style/Theme.MyXe">
         <activity android:name=".activity.HomeView"></activity>
         <activity android:name=".activity.AddItem2" />
-        <activity android:name=".activity.LichSuThayLinhKien" />
-        <activity android:name=".activity.LichSuThayNhot" />
-        <activity android:name=".activity.LichSuDoXang" />
+        <activity android:name=".activity.LichSuThayLinhKienActivity" />
+        <activity android:name=".activity.LichSuThayNhotActivity" />
+        <activity android:name=".activity.LichSuDoXangActivity" />
         <activity android:name=".activity.AddItem" />
         <activity android:name=".Login">
             <intent-filter>

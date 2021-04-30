@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.view.inputmethod.InputMethodManager;
 
+import com.doancuoiky.myxe.R;
 import com.doancuoiky.myxe.model.Xe;
 
 import java.text.SimpleDateFormat;
@@ -17,6 +18,7 @@ public class GlobalFunction {
     public static String loginEmail;
     public static String currentID = "";
     public static Xe selectedXe;
+    public static int[] motoIcons = {R.drawable.r32, R.drawable.ic_dream, R.drawable.ic_exciter, R.drawable.raider2, R.drawable.cub2};
 
     public static void hideSoftKeyboard(Activity activity) {
         InputMethodManager inputMethodManager =

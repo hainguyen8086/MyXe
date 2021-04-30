@@ -53,7 +53,11 @@ public class XangFragment extends Fragment {
         loadingAlert.setCancelable(false);
         setEvent();
         GlobalFunction.hideSoftKeyboard(getActivity());
-        textView.setText("Xe đang chọn: XE ABC");
+        if (GlobalFunction.selectedXe != null) {
+            textView.setText("Xe đang chọn: " + GlobalFunction.selectedXe.getTenXe());
+        } else {
+            textView.setText("Bạn chưa chọn xe");
+        }
         list.add(new BaseCell(R.drawable.ic_moto, "", "Nhập số tiền đổ xăng"));
         list.add(new BaseCell(R.drawable.ic_dungtich, "", "Nhập số lit xăng đã đổ"));
         list.add(new BaseCell(R.drawable.ic_km, "", "Nhập số km hiện tại"));
@@ -73,31 +77,35 @@ public class XangFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Tạo 1 json object -> để truyền body request tới API
-                String[] jsonKey = {"tienDoXang", "dungTich", "kmLucDoXang", "diaChi"};
-                try {
-                    JSONObject object = new JSONObject();
-                    object.put("id", "15-G1 12345678");
-                    boolean valid = true;
-                    //Lấy all value from Edittext trong Listview
-                    for (int i = 0; i < fuelAdapter.getCount(); i++) {
-                        String value = fuelAdapter.getItem(i).getTitle();
-                        if (value == null || value.isEmpty()) {
-                            valid = false;
-                            break;
+                if (GlobalFunction.selectedXe != null) {
+                    //Tạo 1 json object -> để truyền body request tới API
+                    String[] jsonKey = {"tienDoXang", "dungTich", "kmLucDoXang", "diaChi"};
+                    try {
+                        JSONObject object = new JSONObject();
+                        object.put("id", GlobalFunction.selectedXe.getId());
+                        boolean valid = true;
+                        //Lấy all value from Edittext trong Listview
+                        for (int i = 0; i < fuelAdapter.getCount(); i++) {
+                            String value = fuelAdapter.getItem(i).getTitle();
+                            if (value == null || value.isEmpty()) {
+                                valid = false;
+                                break;
+                            }
+                            //Các trường số thì convert giá trị sang int
+                            object.put(jsonKey[i], i < 3 ? Integer.parseInt(value) : value);
                         }
-                        //Các trường số thì convert giá trị sang int
-                        object.put(jsonKey[i], i < 3 ? Integer.parseInt(value) : value);
+                        //Nếu các editText đều có giá trị thì call API, ngược lại showToast báo
+                        if (valid) {
+                            addFuelHistory(object);
+                        } else {
+                            Toast.makeText(getActivity(), "Vui lòng nhập đầy đủ dữ liệu", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception ex) {
+                        Toast.makeText(getActivity(), ex.getMessage(), Toast.LENGTH_SHORT).show();
+                        ex.printStackTrace();
                     }
-                    //Nếu các editText đều có giá trị thì call API, ngược lại showToast báo
-                    if (valid) {
-                        addFuelHistory(object);
-                    } else {
-                        Toast.makeText(getActivity(), "Vui lòng nhập đầy đủ dữ liệu", Toast.LENGTH_SHORT).show();
-                    }
-                }catch (Exception ex) {
-                    Toast.makeText(getActivity(), ex.getMessage(), Toast.LENGTH_SHORT).show();
-                    ex.printStackTrace();
+                } else {
+                    Toast.makeText(getActivity(), "Vui lòng chọn xe trước khi nhập", Toast.LENGTH_SHORT).show();
                 }
             }
         });
