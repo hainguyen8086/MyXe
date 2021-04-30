@@ -18,11 +18,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.doancuoiky.myxe.R;
 import com.doancuoiky.myxe.activity.ThemXe;
+import com.doancuoiky.myxe.adapter.RecycleViewXeAdapter;
+import com.doancuoiky.myxe.model.ViewXe;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class XeFragment extends Fragment {
 
     private XeViewModel xeViewModel;
-//    private CardView cardViewAddXe;
+    //    private CardView cardViewAddXe;
+    RecycleViewXeAdapter recycleViewXeAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -42,6 +48,23 @@ public class XeFragment extends Fragment {
             public void onClick(View v) {
 //                System.out.println("clicked text on cardview");
                 startActivity(intent);
+            }
+        });
+
+        xeViewModel.getListViewXe().observe(getViewLifecycleOwner(), new Observer<ArrayList<ViewXe>>() {
+            @Override
+            public void onChanged(ArrayList<ViewXe> viewXes) {
+                List<String> tenXe = new ArrayList<>();
+                List<String> bienSo = new ArrayList<>();
+                for (ViewXe i:viewXes){
+                    tenXe.add(i.getTenXe());
+                    bienSo.add(i.getBienSo());
+                }
+
+                recycleViewXeAdapter = new RecycleViewXeAdapter(getActivity(), tenXe, bienSo);
+
+                recyclerView.setAdapter(recycleViewXeAdapter);
+
             }
         });
         return root;

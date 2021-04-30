@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.doancuoiky.myxe.model.NetworkAPI;
+import com.doancuoiky.myxe.model.ViewXe;
 import com.doancuoiky.myxe.model.Xe;
 
 import org.json.JSONArray;
@@ -16,28 +17,30 @@ import java.util.ArrayList;
 public class XeViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
-    private MutableLiveData<ArrayList<String>> mTenXe;
-    private MutableLiveData<ArrayList<String>> mBienSoXe;
+    public static MutableLiveData<ArrayList<String>> mTenXe;
+    public static MutableLiveData<ArrayList<String>> mBienSoXe;
+    public static MutableLiveData<ArrayList<ViewXe>> viewXe;
     public static ArrayList<String> listTenXe;
     public static ArrayList<String> listBienSoXe;
+    public static ArrayList<ViewXe> listViewXe;
 
     public XeViewModel() {
         mText = new MutableLiveData<>();
         mTenXe = new MutableLiveData<>();
         mBienSoXe = new MutableLiveData<>();
+        viewXe = new MutableLiveData<>();
+
         mText.setValue("danh sách xe");
         listTenXe = new ArrayList<>();
         listBienSoXe = new ArrayList<>();
+        listViewXe = new ArrayList<>();
 
-        getAllItem();
-
-        mTenXe.setValue(listTenXe);
-        mBienSoXe.setValue(listBienSoXe);
+        getTenAndBienSo();
 
 
     }
 
-    private void getAllItem() {
+    private void getTenAndBienSo() {
         Thread thread = new Thread() {
             @Override
             public void run() {
@@ -57,13 +60,19 @@ public class XeViewModel extends ViewModel {
                             System.out.println("getJsonObject "+tenXe+" -- "+bienSo);
                             listTenXe.add(tenXe);
                             listBienSoXe.add(bienSo);
+                            listViewXe.add(new ViewXe(tenXe, bienSo));
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
                     System.out.println("List Ten Xe " + listTenXe);
                     System.out.println("List Bien So Xe " + listBienSoXe);
+                    System.out.println("list view xe"+listViewXe);
 
+                    mTenXe.postValue(listTenXe);
+                    mBienSoXe.postValue(listBienSoXe);
+                    viewXe.postValue(listViewXe);
                 }catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -75,5 +84,14 @@ public class XeViewModel extends ViewModel {
 
     public LiveData<String> getText() {
         return mText;
+    }
+    public LiveData<ArrayList<String>> getListTenXe(){
+        return mTenXe;
+    }
+    public LiveData<ArrayList<String>> getListBienSoXe(){
+        return mBienSoXe;
+    }
+    public LiveData<ArrayList<ViewXe>> getListViewXe(){
+        return viewXe;
     }
 }
