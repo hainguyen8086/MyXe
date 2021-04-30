@@ -3,6 +3,9 @@ package com.doancuoiky.myxe.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +38,7 @@ public class FuelAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
+    public BaseCell getItem(int position) {
         return list.get(position);
     }
 
@@ -52,7 +55,27 @@ public class FuelAdapter extends BaseAdapter {
         Drawable res = context.getResources().getDrawable(list.get(position).getIconName());
         imageView.setImageDrawable(res);
         EditText editText = convertView.findViewById(R.id.cell_addFuel_editText);
+        editText.setText(list.get(position).getTitle());
         editText.setHint(list.get(position).getPlaceHolder());
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                list.get(position).setTitle(s.toString());
+            }
+        });
+        if (position < 3) {
+            editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+        }
         return convertView;
     }
 }

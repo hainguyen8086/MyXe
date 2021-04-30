@@ -1,5 +1,6 @@
 package com.doancuoiky.myxe.ui.xang;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,9 +8,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +24,10 @@ import com.doancuoiky.myxe.R;
 import com.doancuoiky.myxe.adapter.FuelAdapter;
 import com.doancuoiky.myxe.global.GlobalFunction;
 import com.doancuoiky.myxe.model.BaseCell;
+import com.doancuoiky.myxe.model.NetworkAPI;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,20 +36,28 @@ public class XangFragment extends Fragment {
 
     ListView listView;
     TextView textView;
+    Button button;
     List<BaseCell> list = new ArrayList<>();
     FuelAdapter fuelAdapter;
+    ProgressDialog loadingAlert;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_xang, container, false);
         listView = root.findViewById(R.id.xang_listView);
         textView = root.findViewById(R.id.xang_textView);
+        button = root.findViewById(R.id.xang_button);
+        loadingAlert = new ProgressDialog(getActivity());
+        loadingAlert.setTitle("");
+        loadingAlert.setMessage("Đang xử lý");
+        loadingAlert.setCancelable(false);
+        setEvent();
         GlobalFunction.hideSoftKeyboard(getActivity());
         textView.setText("Xe đang chọn: XE ABC");
-        list.add(new BaseCell(R.drawable.ic_moto, "Tiền đổ xăng", "Nhập số tiền đổ xăng"));
-        list.add(new BaseCell(R.drawable.ic_moto, "Dung tích", "Nhập số lit xăng đã đổ"));
-        list.add(new BaseCell(R.drawable.ic_moto, "Số km", "Nhập số km hiện tại"));
-        list.add(new BaseCell(R.drawable.ic_moto, "Địa chỉ", "Địa chỉ cây xăng"));
+        list.add(new BaseCell(R.drawable.ic_moto, "", "Nhập số tiền đổ xăng"));
+        list.add(new BaseCell(R.drawable.ic_moto, "", "Nhập số lit xăng đã đổ"));
+        list.add(new BaseCell(R.drawable.ic_moto, "", "Nhập số km hiện tại"));
+        list.add(new BaseCell(R.drawable.ic_moto, "", "Địa chỉ cây xăng"));
         renderList();
         return root;
     }
@@ -52,4 +67,66 @@ public class XangFragment extends Fragment {
         listView.setAdapter(fuelAdapter);
     }
 
+    public void setEvent() {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String[] jsonKey = {"tienDoXang", "dungTich", "kmLucDoXang", "diaChi"};
+                try {
+                    JSONObject object = new JSONObject();
+                    object.put("id", "15-G1 12345678");
+                    boolean valid = true;
+                    for (int i = 0; i < fuelAdapter.getCount(); i++) {
+                        String value = fuelAdapter.getItem(i).getTitle();
+                        if (value == null || value.isEmpty()) {
+                            valid = false;
+                            break;
+                        }
+                        object.put(jsonKey[i], i < 3 ? Integer.parseInt(value) : value);
+                    }
+                    if (valid) {
+                        addFuelHistory(object);
+                    } else {
+                        Toast.makeText(getActivity(), "Vui lòng nhập đầy đủ dữ liệu", Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception ex) {
+                    Toast.makeText(getActivity(), ex.getMessage(), Toast.LENGTH_SHORT).show();
+                    ex.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void addFuelHistory(JSONObject object) {
+        loadingAlert.show();
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    NetworkAPI networkAPI = new NetworkAPI();
+                    String response = networkAPI.execute("AddFuelHistory", object.toString()).get();
+                    JSONObject result = new JSONObject(response);
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Toast.makeText(getActivity(), result.getString("description"), Toast.LENGTH_SHORT).show();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+                }catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingAlert.dismiss();
+                    }
+                });
+            }
+        };
+        thread.start();
+    }
 }

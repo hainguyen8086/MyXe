@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.view.inputmethod.InputMethodManager;
 
 public class GlobalFunction {
+
+    public static String currentID = "";
+
     public static void hideSoftKeyboard(Activity activity) {
         InputMethodManager inputMethodManager =
                 (InputMethodManager) activity.getSystemService(
