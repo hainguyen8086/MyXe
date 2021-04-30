@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/group4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/trangcanhan_timeline_tvtime"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="14dp"
+        android:id="@+id/trangcanhan_timeline_group4"
+        />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="#E8E8E8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/trangcanhan_timeline_group4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/trangcanhan_timeline_tvtime"
+        />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="#E8E8E8"
+        app:layout_constraintTop_toBottomOf="@id/trangcanhan_timeline_group4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/trangcanhan_timeline_tvtime"
+        />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E8E8E8"
+        app:layout_constraintStart_toEndOf="@id/trangcanhan_timeline_group4"
+        app:layout_constraintEnd_toStartOf="@id/trangcanhan_timeline_tvtime"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="22dp"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E8E8E8"
+        app:layout_constraintStart_toEndOf="@id/trangcanhan_timeline_tvtime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="22dp"/>
+
+    <TextView
+        android:id="@+id/trangcanhan_timeline_tvtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        android:text="17:05:24 16/09/2019"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:background="#F4EBEB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/cell_history_type"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintTop_toBottomOf="@id/trangcanhan_timeline_tvtime"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="5dp"
+        android:text="Số lit/Loai nhot/Ten linh kien"/>
+
+    <TextView
+        android:id="@+id/cell_history_money"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintTop_toBottomOf="@id/cell_history_type"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="5dp"
+        android:text="Giá tiền"/>
+
+    <TextView
+        android:id="@+id/cell_history_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintTop_toBottomOf="@id/cell_history_money"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="5dp"
+        android:text="Thời gian"/>
+
+    <TextView
+        android:id="@+id/cell_history_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintTop_toBottomOf="@id/cell_history_time"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="5dp"
+        android:text="Địa chỉ"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
