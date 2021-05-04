@@ -22,7 +22,9 @@ public class LichSuThayNhotActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         listView = findViewById(R.id.fuel_history);
         historyAdapter = new HistoryAdapter(this, R.layout.cell_history, null, GlobalFunction.selectedXe.getListLichSuThayNhot(), null);
-        listView.setAdapter(historyAdapter);
+        if (historyAdapter != null) {
+            listView.setAdapter(historyAdapter);
+        }
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {

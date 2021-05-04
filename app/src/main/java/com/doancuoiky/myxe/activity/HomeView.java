@@ -10,12 +10,11 @@ import android.view.MenuItem;
 import com.doancuoiky.myxe.R;
 import com.doancuoiky.myxe.ui.linhkien.FLinhKien;
 import com.doancuoiky.myxe.ui.nhot.FNhot;
-import com.doancuoiky.myxe.ui.xang.FXang;
 import com.doancuoiky.myxe.ui.xang.XangFragment;
 import com.doancuoiky.myxe.ui.xe.FXe;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomeView extends AppCompatActivity implements FXe.OnFragmentInteractionListener, FXang.OnFragmentInteractionListener,
+public class HomeView extends AppCompatActivity implements FXe.OnFragmentInteractionListener,
         FNhot.OnFragmentInteractionListener, FLinhKien.OnFragmentInteractionListener{
 
     public static BottomNavigationView navigationView;

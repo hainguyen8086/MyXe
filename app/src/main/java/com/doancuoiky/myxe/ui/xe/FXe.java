@@ -119,11 +119,16 @@ public class FXe extends Fragment {
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
+        System.out.println("FXe hidden = " + hidden);
         if (!hidden) {
-            System.out.println("FXe hidden = " + hidden);
             vehicleList.clear();
             loadMyVehicle();
         }
+    }
+
+    public void updateMyXe() {
+        vehicleList.clear();
+        loadMyVehicle();
     }
 
     public void loadMyVehicle() {

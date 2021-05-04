@@ -28,6 +28,7 @@ public class VehicleAdapter extends BaseAdapter {
         this.context = context;
         this.layout = layout;
         this.list = list;
+        selected = list.indexOf(GlobalFunction.selectedXe);
     }
 
     @Override

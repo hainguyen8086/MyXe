@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.doancuoiky.myxe.R;
 import com.doancuoiky.myxe.global.GlobalFunction;
 import com.doancuoiky.myxe.model.NetworkAPI;
+import com.doancuoiky.myxe.ui.xe.FXe;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -123,7 +124,7 @@ public class AddItem2 extends AppCompatActivity {
                             try {
                                 System.out.println(result.getString("description"));
                                 Toast.makeText(AddItem2.this, result.getString("description"), Toast.LENGTH_SHORT).show();
-                                back();
+                                back(result.getInt("code") == 0);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -143,7 +144,7 @@ public class AddItem2 extends AppCompatActivity {
         thread.start();
     }
 
-    public void back() {
+    public void back(boolean success) {
         Thread thread = new Thread() {
             @Override
             public void run() {
@@ -161,6 +162,9 @@ public class AddItem2 extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        if (success) {
+                            ((FXe) HomeView.fragments[0]).updateMyXe();
+                        }
                         finish();
                         onBackPressed();
                     }

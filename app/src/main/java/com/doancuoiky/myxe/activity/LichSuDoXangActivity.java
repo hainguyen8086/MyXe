@@ -24,7 +24,9 @@ public class LichSuDoXangActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         listView = findViewById(R.id.fuel_history);
         historyAdapter = new HistoryAdapter(this, R.layout.cell_history, GlobalFunction.selectedXe.getListLichSuDoXang(), null, null);
-        listView.setAdapter(historyAdapter);
+        if (historyAdapter != null) {
+            listView.setAdapter(historyAdapter);
+        }
     }
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

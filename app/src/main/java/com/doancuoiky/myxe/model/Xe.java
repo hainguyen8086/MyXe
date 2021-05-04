@@ -164,4 +164,11 @@ public class Xe {
     public void setListLichSuThayLinhKien(List<LichSuThayLinhKien> listLichSuThayLinhKien) {
         this.listLichSuThayLinhKien = listLichSuThayLinhKien;
     }
+
+    @Override
+    public boolean equals(Object object) {
+        Xe xe = (Xe)object;
+        return xe.getId().equals(id);
+    }
+
 }
